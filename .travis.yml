@@ -1,0 +1,28 @@
+language: python
+dist: xenial
+python:
+- 3.6
+services:
+- redis-server
+stages:
+- lint
+- test
+
+env:
+  BROKER_URL: redis://localhost:6379/0
+
+jobs:
+  include:
+  - stage: lint
+    script: pre-commit run -a
+  - stage: test
+    script:
+    - coverage run --include='pacifica/*' -p -m celery -A pacifica.example.tasks worker -c 1 -P solo -l info &
+    - coverage run --include='pacifica/*' -m pytest -v
+    - celery -A pacifica.example.tasks control shutdown || true
+    - coverage combine -a .coverage*
+    - coverage report -m --fail-under 100
+
+install:
+- pip install -r requirements-dev.txt
+- pip install 'celery[redis]'

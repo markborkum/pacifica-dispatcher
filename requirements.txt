@@ -1,0 +1,5 @@
+celery
+cherrypy
+peewee
+setuptools
+six

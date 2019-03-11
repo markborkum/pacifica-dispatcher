@@ -1,0 +1,11 @@
+celery
+cherrypy
+coverage
+peewee
+pep257
+pre-commit
+pre-commit
+pylint
+pytest
+requests
+setuptools
