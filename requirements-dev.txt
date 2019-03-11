@@ -7,5 +7,6 @@ pre-commit
 pre-commit
 pylint
 pytest
+recommonmark
 requests
 setuptools
