@@ -21,7 +21,7 @@ setup(
     namespace_packages=['pacifica'],
     entry_points={
         'console_scripts': [
-            'pacifica-example=pacifica.example.__main__:main'
+            'pacifica-dispatcher=pacifica.dispatcher.__main__:main'
         ]
     },
     install_requires=[str(ir.req) for ir in INSTALL_REQS]

@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""Example Pacifica Module."""
+"""Dispatcher Pacifica Module."""
 
 
-class Example():
-    """This is an example class in the example module."""
+class Dispatcher():
+    """This is dispatcher class in the dispatcher module."""
 
     @staticmethod
     def add(thing1, thing2):

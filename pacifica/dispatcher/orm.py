@@ -1,22 +1,22 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-"""The ORM module defining the SQL model for example."""
+"""The ORM module defining the SQL model for dispatcher."""
 import uuid
 from datetime import datetime
 from peewee import Model, CharField, DateTimeField, UUIDField
 from playhouse.db_url import connect
-from pacifica.example.config import get_config
+from .config import get_config
 
 DB = connect(get_config().get('database', 'peewee_url'))
 
 
 def database_setup():
     """Setup the database."""
-    ExampleModel.database_setup()
+    DispatcherModel.database_setup()
 
 
-class ExampleModel(Model):
-    """Example saving some name data."""
+class DispatcherModel(Model):
+    """Dispatcher saving some name data."""
 
     uuid = UUIDField(primary_key=True, default=uuid.uuid4, index=True)
     value = CharField(index=True)

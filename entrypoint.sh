@@ -10,11 +10,11 @@ if [[ -z $PEEWEE_DATABASE_URL ]] ; then
   fi
   PEEWEE_DATABASE_URL="${PEEWEE_PROTO}://${PEEWEE_USER_PART}${PEEWEE_ADDR_PART}/${PEEWEE_DATABASE}"
 fi
-mkdir ~/.pacifica-example/
-printf '[database]\npeewee_url = '${PEEWEE_DATABASE_URL}'\n' > ~/.pacifica-example/config.ini
-python -c 'from pacifica.example.orm import database_setup; database_setup()'
+mkdir ~/.pacifica-dispatcher/
+printf '[database]\npeewee_url = '${PEEWEE_DATABASE_URL}'\n' > ~/.pacifica-dispatcher/config.ini
+pacifica-dispatcher-cmd dbsync
 uwsgi \
-  --http-socket 0.0.0.0:8069 \
+  --http-socket 0.0.0.0:8050 \
   --master \
   --die-on-term \
-  --wsgi-file /usr/src/app/pacifica/example/wsgi.py "$@"
+  --wsgi-file /usr/src/app/pacifica/dispatcher/wsgi.py "$@"

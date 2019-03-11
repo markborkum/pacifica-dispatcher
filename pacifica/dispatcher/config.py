@@ -5,7 +5,7 @@ try:
     from ConfigParser import SafeConfigParser
 except ImportError:  # pragma: no cover python 2 vs 3 issue
     from configparser import SafeConfigParser
-from pacifica.example.globals import CONFIG_FILE
+from .globals import CONFIG_FILE
 
 
 def get_config():

@@ -10,6 +10,6 @@ if [[ -z $PEEWEE_DATABASE_URL ]] ; then
   fi
   PEEWEE_DATABASE_URL="${PEEWEE_PROTO}://${PEEWEE_USER_PART}${PEEWEE_ADDR_PART}/${PEEWEE_DATABASE}"
 fi
-mkdir ~/.pacifica-example/
-printf '[database]\npeewee_url = '${PEEWEE_DATABASE_URL}'\n' > ~/.pacifica-example/config.ini
-celery -A pacifica.example.tasks worker --loglevel=info
+mkdir ~/.pacifica-dispatcher/
+printf '[database]\npeewee_url = '${PEEWEE_DATABASE_URL}'\n' > ~/.pacifica-dispatcher/config.ini
+celery -A pacifica.dispatcher.tasks worker --loglevel=info

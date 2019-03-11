@@ -5,8 +5,8 @@ from json import dumps
 import cherrypy
 from cherrypy import HTTPError
 from peewee import DoesNotExist
-from pacifica.example.orm import ExampleModel
-from pacifica.example.tasks import example_task
+from .orm import DispatcherModel
+from .tasks import dispatcher_task
 
 
 def error_page_default(**kwargs):
@@ -30,7 +30,7 @@ class Dispatch():
     # pylint: disable=invalid-name
     def GET(method, *numbers):
         """Get the event ID and return it."""
-        return str(example_task.delay(method, *numbers))
+        return str(dispatcher_task.delay(method, *numbers))
 
 
 # pylint: disable=too-few-public-methods
@@ -44,7 +44,7 @@ class Status():
     def GET(uuid):
         """Receive the event and dispatch it to backend."""
         try:
-            return str(ExampleModel.get(uuid=uuid).value)
+            return str(DispatcherModel.get(uuid=uuid).value)
         except DoesNotExist:
             raise HTTPError('404', 'Not Found')
 # pylint: enable=too-few-public-methods

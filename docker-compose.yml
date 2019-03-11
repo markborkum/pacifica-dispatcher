@@ -8,7 +8,7 @@ services:
     - rabbit
     - mysql
     ports:
-    - 8069:8069
+    - 8050:8050
     environment:
       PEEWEE_ADDR: mysql
       BROKER_URL: pyamqp://guest:guest@rabbit:5672//
@@ -28,9 +28,9 @@ services:
     image: mysql:5
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: pacifica_example
-      MYSQL_USER: example
-      MYSQL_PASSWORD: example
+      MYSQL_DATABASE: pacifica_dispatcher
+      MYSQL_USER: dispatcher
+      MYSQL_PASSWORD: dispatcher
     ports:
      - 3306:3306
 
