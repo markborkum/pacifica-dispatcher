@@ -17,8 +17,11 @@ jobs:
     script: pre-commit run -a
   - stage: test
     script:
-    - coverage run --include='pacifica/*' -p -m celery -A pacifica.dispatcher.tasks worker -c 1 -P solo -l info &
-    - coverage run --include='pacifica/*' -m pytest -v
+    - pip install .
+    - export DISPATCHER_CPCONFIG=$PWD/server.conf
+    - cd tests
+    - coverage run --include='*/site-packages/pacifica/dispatcher/*' -p -m celery -A pacifica.dispatcher.tasks worker -c 1 -P solo -l info &
+    - coverage run --include='*/site-packages/pacifica/dispatcher/*' -m pytest -xv
     - celery -A pacifica.dispatcher.tasks control shutdown || true
     - coverage combine -a .coverage*
     - coverage report -m --fail-under 100

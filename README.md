@@ -71,5 +71,5 @@ Perform these steps in three separate terminals.
 
 To test working system run the following in bash:
 
- 1. `UUID=$(curl http://127.0.0.1:8069/dispatch/add/2/2)`
- 2. `curl http://127.0.0.1:8069/status/$UUID`
+ 1. `UUID=$(curl http://127.0.0.1:8050/dispatch/add/2/2)`
+ 2. `curl http://127.0.0.1:8050/status/$UUID`

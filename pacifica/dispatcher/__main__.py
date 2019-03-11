@@ -35,7 +35,7 @@ def main():
                         default=CHERRYPY_CONFIG, dest='config',
                         help='cherrypy config file')
     parser.add_argument('-p', '--port', metavar='PORT', type=int,
-                        default=8069, dest='port',
+                        default=8050, dest='port',
                         help='port to listen on')
     parser.add_argument('-a', '--address', metavar='ADDRESS',
                         default='localhost', dest='address',
