@@ -1,8 +1,8 @@
 ### Pacifica Dispatcher version
-[Version of the pacifica software where you are encountering the issue]
+[Version of the Pacifica Dispatcher where you are encountering the issue]
 
 ### Pacifica Core Software versions
-[Versions of the pacifica core software components related to this issue]
+[Versions of the Pacifica Core Software components related to this issue]
 
 ### Platform Details
 [Operating system distribution and release version. Cloud provider if running in the cloud]

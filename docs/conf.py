@@ -16,17 +16,13 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-from os import environ
-from os.path import abspath, join
 from recommonmark.parser import CommonMarkParser
-
-environ['DISPATCHER_CPCONFIG'] = join(abspath('..'), 'server.conf')
 
 # -- Project information -----------------------------------------------------
 
-project = 'Pacifica Dispatcher Service'
-copyright = '2019, David Brown'
-author = 'David Brown'
+project = 'Pacifica Dispatcher'
+copyright = '2019, Battelle Memorial Institute'
+author = 'Mark Borkum'
 
 # The short X.Y version
 version = ''
@@ -138,7 +134,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'PacificaDispatcher.tex', 'Pacifica Dispatcher Documentation',
-     'David Brown', 'manual'),
+     'Mark Borkum', 'manual'),
 ]
 
 
@@ -159,7 +155,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     (master_doc, 'PacificaDispatcher', 'Pacifica Dispatcher Documentation',
-     author, 'PacificaDispatcher', 'One line description of project.',
+     author, 'PacificaDispatcher', 'Pacifica Dispatcher receives and handles CloudEvents notifications.',
      'Miscellaneous'),
 ]
 

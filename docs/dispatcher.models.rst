@@ -1,7 +1,7 @@
-Configuration Python Module
+Models Python Module
 =============================================
 
-.. automodule:: pacifica.dispatcher.config
+.. automodule:: pacifica.dispatcher.models
    :members:
    :private-members:
    :special-members:

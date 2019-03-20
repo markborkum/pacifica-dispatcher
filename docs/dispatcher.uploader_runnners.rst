@@ -1,7 +1,7 @@
-ORM Python Module
+Uploader Runners Python Module
 =============================================
 
-.. automodule:: pacifica.dispatcher.orm
+.. automodule:: pacifica.dispatcher.uploader_runners
    :members:
    :private-members:
    :special-members:

@@ -6,16 +6,13 @@
 Welcome to Pacifica Dispatcher's documentation!
 ===============================================
 
-The Pacifica Dispatcher service provides endpoints to consume cloud events and
-based on policy and configuration executes work.
+Pacifica Dispatcher receives and handles CloudEvents notifications.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
    installation
-   configuration
-   exampleusage
    dispatcher
 
 Indices and tables

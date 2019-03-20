@@ -1,9 +1,14 @@
-celery
-cherrypy
+-r requirements.txt
 coverage
-peewee
+eventlet
+pacifica-archiveinterface
+pacifica-cartd
+pacifica-ingest
+pacifica-metadata
+pacifica-notifications
+pacifica-policy
+pacifica-uniqueid
 pep257
-pre-commit
 pre-commit
 pylint
 pytest

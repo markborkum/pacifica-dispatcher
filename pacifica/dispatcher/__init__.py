@@ -1,17 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Dispatcher Pacifica Module."""
-
-
-class Dispatcher():
-    """This is dispatcher class in the dispatcher module."""
-
-    @staticmethod
-    def add(thing1, thing2):
-        """Add thing one and thing two together."""
-        return thing1 + thing2
-
-    @staticmethod
-    def mul(thing1, thing2):
-        """Multiply thing one and thing two together."""
-        return thing1 * thing2
+#
+# pacifica-dispatcher: pacifica/dispatcher/__init__.py
+#
+# Copyright (c) 2019, Battelle Memorial Institute
+# All rights reserved.
+#
+# See LICENSE for details.
+"""Pacifica Dispatcher Module."""

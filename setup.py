@@ -11,18 +11,13 @@ from setuptools import setup, find_packages
 INSTALL_REQS = parse_requirements('requirements.txt', session='hack')
 
 setup(
-    name='pacifica-service',
+    name='pacifica-dispatcher',
     use_scm_version=True,
     setup_requires=['setuptools_scm'],
-    description='Pacifica Configuration Parser',
-    author='David Brown',
-    author_email='david.brown@pnnl.gov',
+    description='Pacifica Dispatcher',
+    author='Mark Borkum',
+    author_email='mark.borkum@pnnl.gov',
     packages=find_packages(),
     namespace_packages=['pacifica'],
-    entry_points={
-        'console_scripts': [
-            'pacifica-dispatcher=pacifica.dispatcher.__main__:main'
-        ]
-    },
     install_requires=[str(ir.req) for ir in INSTALL_REQS]
 )

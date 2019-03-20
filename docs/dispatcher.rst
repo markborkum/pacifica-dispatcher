@@ -5,19 +5,16 @@ Dispatcher Python Module
    :maxdepth: 2
    :caption: Contents:
 
-   dispatcher.config
+   dispatcher.downloader_runners
+   dispatcher.event_handlers
+   dispatcher.exceptionns
    dispatcher.globals
-   dispatcher.orm
-   dispatcher.rest
-   dispatcher.tasks
-   dispatcher.wsgi
+   dispatcher.models
+   dispatcher.receiver
+   dispatcher.router
+   dispatcher.uploader_runnners
 
 .. automodule:: pacifica.dispatcher
-   :members:
-   :private-members:
-   :special-members:
-
-.. automodule:: pacifica.dispatcher.__main__
    :members:
    :private-members:
    :special-members:

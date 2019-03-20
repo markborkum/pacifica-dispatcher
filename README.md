@@ -10,7 +10,7 @@
 [![Frontend Automated build](https://img.shields.io/docker/automated/pacifica/dispatcher-frontend.svg?maxAge=2592000)](https://cloud.docker.com/swarm/pacifica/repository/docker/pacifica/dispatcher-frontend/builds)
 [![Backend Automated build](https://img.shields.io/docker/automated/pacifica/dispatcher-backend.svg?maxAge=2592000)](https://cloud.docker.com/swarm/pacifica/repository/docker/pacifica/dispatcher-backend/builds)
 
-Pacifica dispatcher runs applications based on incoming cloud events.
+Pacifica Dispatcher receives and handles [CloudEvents](https://cloudevents.io/) notifications.
 
 ## Documentation
 
@@ -19,5 +19,3 @@ refer to the [Read the Docs](https://pacifica-dispatcher.readthedocs.io)
 documentation.
 
 * [Installation](docs/installation.md) documentation.
-* [Configuration](docs/configuration.md) documentation.
-* [Examples](docs/exampleusage.md) documentation.
