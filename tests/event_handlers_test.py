@@ -14,7 +14,6 @@ from cloudevents.constants import SPEC_VERSION
 from cloudevents.model import Event
 
 from pacifica.dispatcher.event_handlers import NoopEventHandler
-from pacifica.dispatcher.globals import CLOUDEVENTS_DEFAULT_EVENT_TYPE_, CLOUDEVENTS_DEFAULT_SOURCE_
 
 
 class NoopEventHandlerTestCase(unittest.TestCase):
@@ -25,8 +24,8 @@ class NoopEventHandlerTestCase(unittest.TestCase):
         event = Event({
             'cloudEventsVersion': SPEC_VERSION,
             'eventID': 'ID',
-            'eventType': CLOUDEVENTS_DEFAULT_EVENT_TYPE_,
-            'source': CLOUDEVENTS_DEFAULT_SOURCE_,
+            'eventType': 'io.cloudevents',
+            'source': '/cloudevents/io',
             'data': [],
         })
 

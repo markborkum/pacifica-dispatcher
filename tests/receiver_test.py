@@ -22,7 +22,6 @@ from cloudevents.constants import SPEC_VERSION
 from jsonpath2.path import Path
 
 from pacifica.dispatcher.event_handlers import NoopEventHandler, ExceptionEventHandler
-from pacifica.dispatcher.globals import CLOUDEVENTS_DEFAULT_EVENT_TYPE_, CLOUDEVENTS_DEFAULT_SOURCE_
 from pacifica.dispatcher.receiver import create_peewee_model
 from pacifica.dispatcher.router import Router
 
@@ -36,7 +35,7 @@ DB_.create_tables(MODELS_)
 
 ROUTER = Router()
 ROUTER.add_route(
-    Path.parse_str('$[?(@["eventType"] = {})]'.format(json.dumps(CLOUDEVENTS_DEFAULT_EVENT_TYPE_))),
+    Path.parse_str('$[?(@["eventType"] = {})]'.format(json.dumps('io.cloudevents'))),
     NoopEventHandler()
 )
 ROUTER.add_route(
@@ -76,23 +75,23 @@ class ReceiveTaskModelTestCase(helper.CPWebCase):
         """Setup by creating a stub cloud event."""
         self.event_data = {
             'cloudEventsVersion': SPEC_VERSION,
-            'eventType': CLOUDEVENTS_DEFAULT_EVENT_TYPE_,
+            'eventType': 'io.cloudevents',
             'eventID': 'ID',
-            'source': CLOUDEVENTS_DEFAULT_SOURCE_,
+            'source': '/cloudevents/io',
             'data': [],
         }
         self.bad_event_data = {
             'cloudEventsVersion': SPEC_VERSION,
             'eventType': 'org.pacifica.metadata.doiupload',
             'eventID': 'ID',
-            'source': CLOUDEVENTS_DEFAULT_SOURCE_,
+            'source': '/cloudevents/io',
             'data': [],
         }
         self.exception_event_data = {
             'cloudEventsVersion': SPEC_VERSION,
             'eventType': 'exception.event.type',
             'eventID': 'ID',
-            'source': CLOUDEVENTS_DEFAULT_SOURCE_,
+            'source': '/cloudevents/io',
             'data': [],
         }
 

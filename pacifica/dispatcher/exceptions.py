@@ -15,8 +15,6 @@ dispatching process.
 """
 from cloudevents.model import Event
 
-from .globals import CLOUDEVENTS_DEFAULT_EVENT_TYPE_, CLOUDEVENTS_DEFAULT_SOURCE_
-
 
 class EventError(BaseException):
     """
@@ -30,34 +28,6 @@ class EventError(BaseException):
         super(EventError, self).__init__()
 
         self.event = event
-
-
-class InvalidEventTypeValueError(EventError):
-    """
-    Invalid event type error.
-
-    This error is raised when events are received that have an
-    invalid ``event_type`` attribute.
-    """
-
-    def __str__(self) -> str:  # pragma: no cover
-        """Stringify the invalid type."""
-        return 'field \'event_type\' is invalid (expected: \'{0}\')'.format(
-            CLOUDEVENTS_DEFAULT_EVENT_TYPE_.replace('\'', '\\\''))
-
-
-class InvalidSourceValueError(EventError):
-    """
-    Invalid event source error.
-
-    This error is raised when events are received that have an
-    invalid ``source`` attribute.
-    """
-
-    def __str__(self) -> str:  # pragma: no cover
-        """Stringify the invalid source."""
-        return 'field \'source\' is invalid (expected: \'{0}\')'.format(
-            CLOUDEVENTS_DEFAULT_SOURCE_.replace('\'', '\\\''))
 
 
 class TransactionDuplicateAttributeError(EventError):
@@ -79,5 +49,4 @@ class TransactionDuplicateAttributeError(EventError):
         return 'field \'Transactions.{0}\' is already defined'.format(self.name.replace('\'', '\\\''))
 
 
-__all__ = ('EventError', 'InvalidEventTypeValueError',
-           'InvalidSourceValueError', 'TransactionDuplicateAttributeError', )
+__all__ = ('EventError', 'TransactionDuplicateAttributeError', )

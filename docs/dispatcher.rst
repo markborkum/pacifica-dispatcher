@@ -8,7 +8,6 @@ Dispatcher Python Module
    dispatcher.downloader_runners
    dispatcher.event_handlers
    dispatcher.exceptionns
-   dispatcher.globals
    dispatcher.models
    dispatcher.receiver
    dispatcher.router

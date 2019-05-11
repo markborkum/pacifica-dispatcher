@@ -14,7 +14,6 @@ from cloudevents.constants import SPEC_VERSION
 from jsonpath2.path import Path
 
 from pacifica.dispatcher.event_handlers import NoopEventHandler
-from pacifica.dispatcher.globals import CLOUDEVENTS_DEFAULT_EVENT_TYPE_, CLOUDEVENTS_DEFAULT_SOURCE_
 from pacifica.dispatcher.router import RouteNotFoundRouterError, Router
 
 
@@ -47,8 +46,8 @@ class RouterTestCase(unittest.TestCase):
         self.assertEqual(None, router({
             'cloudEventsVersion': SPEC_VERSION,
             'eventID': 'ID',
-            'eventType': CLOUDEVENTS_DEFAULT_EVENT_TYPE_,
-            'source': CLOUDEVENTS_DEFAULT_SOURCE_,
+            'eventType': 'io.cloudevents',
+            'source': '/cloudevents/io',
             'data': [],
         }))
 

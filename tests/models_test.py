@@ -14,9 +14,7 @@ import unittest
 from cloudevents.constants import SPEC_VERSION
 from cloudevents.model import Event
 
-from pacifica.dispatcher.exceptions import InvalidEventTypeValueError, InvalidSourceValueError
 from pacifica.dispatcher.exceptions import TransactionDuplicateAttributeError
-from pacifica.dispatcher.globals import CLOUDEVENTS_DEFAULT_EVENT_TYPE_, CLOUDEVENTS_DEFAULT_SOURCE_
 from pacifica.dispatcher.models import File, Transaction, TransactionKeyValue
 
 
@@ -50,24 +48,8 @@ class PacificaModelTestCase(unittest.TestCase):
         self._event_ok = Event({
             'cloudEventsVersion': SPEC_VERSION,
             'eventID': '1',
-            'eventType': CLOUDEVENTS_DEFAULT_EVENT_TYPE_,
-            'source': CLOUDEVENTS_DEFAULT_SOURCE_,
-            'data': self._event_data,
-        })
-
-        self._event_error_invalid_event_type = Event({
-            'cloudEventsVersion': SPEC_VERSION,
-            'eventID': '1',
-            'eventType': 'INVALID',
-            'source': CLOUDEVENTS_DEFAULT_SOURCE_,
-            'data': self._event_data,
-        })
-
-        self._event_error_invalid_source = Event({
-            'cloudEventsVersion': SPEC_VERSION,
-            'eventID': '1',
-            'eventType': CLOUDEVENTS_DEFAULT_EVENT_TYPE_,
-            'source': 'INVALID',
+            'eventType': 'io.cloudevents',
+            'source': '/cloudevents/io',
             'data': self._event_data,
         })
 
@@ -76,8 +58,8 @@ class PacificaModelTestCase(unittest.TestCase):
         self._event_error_duplicated_attr = Event({
             'cloudEventsVersion': SPEC_VERSION,
             'eventID': '1',
-            'eventType': CLOUDEVENTS_DEFAULT_EVENT_TYPE_,
-            'source': CLOUDEVENTS_DEFAULT_SOURCE_,
+            'eventType': 'io.cloudevents',
+            'source': '/cloudevents/io',
             'data': self._event_data_error_duplicated_attr,
         })
 
@@ -88,16 +70,6 @@ class PacificaModelTestCase(unittest.TestCase):
 
         for name in ['_id', 'name', 'subdir']:
             self.assertEqual(self._file_data.get(name, None), getattr(inst_list[0], name, None))
-
-    def test_file_from_cloudevents_model_error_invalid_event_type(self):
-        """Create a file from cloud event with invalid type."""
-        with self.assertRaises(InvalidEventTypeValueError):
-            File.from_cloudevents_model(self._event_error_invalid_event_type)
-
-    def test_file_from_cloudevents_model_error_invalid_source(self):
-        """Create a file from cloud event with invalid source."""
-        with self.assertRaises(InvalidSourceValueError):
-            File.from_cloudevents_model(self._event_error_invalid_source)
 
     def test_file_path_error(self):
         """Create a file with invalid path."""
@@ -130,32 +102,12 @@ class PacificaModelTestCase(unittest.TestCase):
         with self.assertRaises(TransactionDuplicateAttributeError):
             Transaction.from_cloudevents_model(self._event_error_duplicated_attr)
 
-    def test_transaction_from_cloudevents_model_error_invalid_event_type(self):
-        """Create a transaction from cloud event with invalid event type."""
-        with self.assertRaises(InvalidEventTypeValueError):
-            Transaction.from_cloudevents_model(self._event_error_invalid_event_type)
-
-    def test_transaction_from_cloudevents_model_error_invalid_source(self):
-        """Create a transaction from cloud event with invalid source."""
-        with self.assertRaises(InvalidSourceValueError):
-            Transaction.from_cloudevents_model(self._event_error_invalid_source)
-
     def test_transaction_key_value_from_cloudevents_model_ok(self):
         """Create a transaction key value from cloud event."""
         inst_list = TransactionKeyValue.from_cloudevents_model(self._event_ok)
         self.assertEqual(1, len(inst_list))
         for name in ['key', 'value']:
             self.assertEqual(self._transaction_key_value_data.get(name, None), getattr(inst_list[0], name, None))
-
-    def test_transaction_key_value_from_cloudevents_model_error_invalid_event_type(self):
-        """Create a transaction key value with invalid type."""
-        with self.assertRaises(InvalidEventTypeValueError):
-            TransactionKeyValue.from_cloudevents_model(self._event_error_invalid_event_type)
-
-    def test_transaction_key_value_from_cloudevents_model_error_invalid_source(self):
-        """Create a transaction key value with invalid source."""
-        with self.assertRaises(InvalidSourceValueError):
-            TransactionKeyValue.from_cloudevents_model(self._event_error_invalid_source)
 
 
 if __name__ == '__main__':
