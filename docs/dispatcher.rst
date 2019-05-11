@@ -7,11 +7,11 @@ Dispatcher Python Module
 
    dispatcher.downloader_runners
    dispatcher.event_handlers
-   dispatcher.exceptionns
+   dispatcher.exceptions
    dispatcher.models
    dispatcher.receiver
    dispatcher.router
-   dispatcher.uploader_runnners
+   dispatcher.uploader_runners
 
 .. automodule:: pacifica.dispatcher
    :members:
